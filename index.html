@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SilentXploit</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      overflow: hidden;
+    }
+    .login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.85);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px cyan;
+      text-align: center;
+      color: cyan;
+      z-index: 2;
+    }
+    input {
+      display: block;
+      margin: 15px auto;
+      padding: 10px;
+      width: 80%;
+      border: none;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: cyan;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .snowflake {
+      position: absolute;
+      color: cyan;
+      user-select: none;
+      z-index: 1;
+      font-size: 20px;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100px); }
+      100% { transform: translateY(100vh); }
+    }
+  </style>
+</head>
+<body>
+  <audio id="clickSound" src="click-sound.mp3" preload="auto"></audio>
+
+  <div class="login-box">
+    <h1>SilentXploit</h1>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button onclick="handleLogin()">Login</button>
+  </div>
+
+  <script>
+    function handleLogin() {
+      document.getElementById("clickSound").play();
+      setTimeout(() => {
+        window.location.href = "https://rexzzxiterz.github.io/silentxploit/";
+      }, 500);
+    }
+
+    // Generate snowflakes
+    for (let i = 0; i < 50; i++) {
+      let snowflake = document.createElement("div");
+      snowflake.className = "snowflake";
+      snowflake.style.left = Math.random() * 100 + "vw";
+      snowflake.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      snowflake.innerText = "*";
+      document.body.appendChild(snowflake);
+    }
+  </script>
+</body>
+</html>
