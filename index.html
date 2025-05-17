@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REXZZ XITERZ</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: cyan;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 0 20px cyan;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      background: #111;
+      border: 1px solid cyan;
+      color: cyan;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: cyan;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      color: cyan;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<audio id="clickSound" src="click-sound.mp3" preload="auto"></audio>
+
+<div class="container">
+  <h1>REXZZ XITERZ</h1>
+  <input type="text" placeholder="Username" />
+  <input type="password" placeholder="Password" />
+  <input type="text" placeholder="License" />
+  <button onclick="handleLogin()">Login</button>
+  <button onclick="playSound()">Register</button>
+</div>
+
+<script>
+  const clickSound = document.getElementById("clickSound");
+
+  function playSound() {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  }
+
+  function handleLogin() {
+    playSound();
+    setTimeout(() => {
+      window.location.href = "https://rexzzxiterz.github.io/silentxploit/";
+    }, 300); // Delay redirect to allow sound to play
+  }
+
+  // Generate snowflakes
+  for (let i = 0; i < 30; i++) {
+    let snowflake = document.createElement("div");
+    snowflake.className = "snowflake";
+    snowflake.textContent = "*";
+    snowflake.style.left = Math.random() * 100 + "vw";
+    snowflake.style.animationDuration = 2 + Math.random() * 3 + "s";
+    snowflake.style.fontSize = 10 + Math.random() * 20 + "px";
+    document.body.appendChild(snowflake);
+  }
+</script>
+
+</body>
+</html>
